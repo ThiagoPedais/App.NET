@@ -1,6 +1,8 @@
 using AppNet.Endpoints.Categories;
+using AppNet.Infra.Data;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddSqlServer<ApplicationDbContext>(builder.Configuration["connectionString:AppNet"]);
 
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
